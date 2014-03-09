@@ -3,6 +3,7 @@ ruby '1.9.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
+gem 'bootstrap-sass', '3.1.1'
 
 # Development and test-only gems
 group :development, :test do
