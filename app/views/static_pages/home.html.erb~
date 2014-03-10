@@ -1,9 +1,9 @@
 <% provide(:title, 'Home') %>
 <div class="jumbotron">
       <div class="container">
-        <h1>UMen<h1>
+        <h1>Menu App<h1>
         <p>Giving consumers the most up-to-date information on restaurant menus.</p>
-        <p><a class="btn btn-primary btn-lg" role="button">View our Menus</a></p>
+	<p><%= link_to "View our Menus", controller: "restaurants", action: "index", { :class => "btn btn-primary btn-lg" } %></p>
       </div>
     </div>
 

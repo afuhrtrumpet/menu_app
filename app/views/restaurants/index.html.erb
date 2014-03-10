@@ -1,0 +1,18 @@
+<% provide(:title, 'Restaurant List') %>
+<div class = "page-header">
+	<h1>Restaurant List</h1>
+</div>
+
+<ul class = "restaurants">
+	<% @restaurants.each do |restaurant| %>
+		<li>
+		<%= link_to restaurant.name, restaurant %>
+		<p><%= restaurant.description %></p>
+		</li>
+	<% end %>
+</ul>
+
+<div class = "page-header">
+	<h2>Don't see the restaurant you're looking for?</h2>
+</div>
+<%= link_to "Add a new restaurant", { controller: "restaurants", action: "new" }, class: "btn btn-primary" %>
