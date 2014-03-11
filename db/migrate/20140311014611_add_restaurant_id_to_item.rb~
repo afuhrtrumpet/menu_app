@@ -1,0 +1,4 @@
+class AddRestaurantIdToItem < ActiveRecord::Migration
+  def change
+  end
+end
