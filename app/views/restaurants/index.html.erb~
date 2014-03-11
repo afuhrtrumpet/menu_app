@@ -12,5 +12,7 @@
 	<% end %>
 </ul>
 
-<h2>Don't see the restaurant you're looking for?</h2>
+<div class = "page-header">
+	<h2>Don't see the restaurant you're looking for?</h2>
+</div>
 <%= link_to "Add a new restaurant", { controller: "restaurants", action: "new" }, class: "btn btn-primary" %>

@@ -18,7 +18,7 @@ describe "Restaurant pages" do
 		it { should have_content('Add new restaurant') }
 		it { should have_title(full_title('Add restaurant')) }
 
-		let(:submit) { "Add restaurant" }
+		let(:submit) { "Create restaurant" }
 
 		describe "with invalid information" do
 			it "should not create a restaurant" do

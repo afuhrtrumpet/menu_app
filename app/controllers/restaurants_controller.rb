@@ -14,6 +14,8 @@ class RestaurantsController < ApplicationController
 
   def show
 	  @restaurant = Restaurant.find(params[:id])
+	  @item = @restaurant.items.build 
+	  @items = @restaurant.items
   end
 
   def index

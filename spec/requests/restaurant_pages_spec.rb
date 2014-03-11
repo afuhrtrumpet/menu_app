@@ -9,7 +9,7 @@ describe "Restaurant pages" do
 		before { visit restaurant_path(restaurant) }
 
 		it { should have_content(restaurant.name) }
-		it { should have_title(restaurant.name) }
+		it { should have_title(full_title(restaurant.name)) }
 	end
 
 	describe "create restaurant page" do
