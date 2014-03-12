@@ -1,18 +1,37 @@
+<% api_host = 'api.yelp.com' %>
+
+<% consumer = OAuth::Consumer.new(ENV['consumer_key'], ENV['consumer_secret'], {:site => "http://#{api_host}"}) %>
+<% access_token = OAuth::AccessToken.new(consumer, ENV['token'], ENV['token_secret']) %>
+
+<% path = "/v2/search?category_filter=restaurants" %>
+<% path = path + "&location=" + (u params[:location]) if params[:location] != nil %>
+<% path = path + "&term=" + (u params[:query]) if params[:query] != nil %>
+
 <% provide(:title, 'Add restaurant') %>
 <h1>Add new restaurant</h1>
 
-<div class = "row">
-	<div class = "span6 offset3">
+<%= form_tag("/new_restaurant", method: "get") do |f| %>
+	<%= label_tag(:query, "Name") %>
+	<%= text_field_tag(:query) %>
+
+	<%= label_tag(:location, "Location") %>
+	<%= text_field_tag(:location) %>
+
+	<%= submit_tag("Find restaurant") %>
+<% end %>
+
+<% if params[:location] != nil %>
+	<% JSON[access_token.get(path).body]["businesses"].each do |restaurant| %>
+		<h1><a href = "<%= restaurant["url"] %>"><%= restaurant["name"] %></a></h1>
+		<p>
+			<% restaurant["location"]["display_address"].each do |element| %>
+				<%= element %><br>
+			<% end %>	
+		</p>
 		<%= form_for(@restaurant) do |f| %>
-			<%= render 'shared/error_messages' %>
-
-			<%= f.label :name %>
-			<%= f.text_field :name %>
-
-			<%= f.label :description %>
-			<%= f.text_field :description %>
-
-			<%= f.submit "Create restaurant", class: "btn btn-large btn-primary" %>
+			<%= f.hidden_field :name, value: restaurant["name"] %>
+			<%= f.hidden_field :location, value: restaurant["location"]["display_address"].join("\n") %>
+			<%= f.submit "Add this restaurant", class: "btn btn-large btn-primary" %>
 		<% end %>
-	</div>
-</div>
+	<% end %>
+<% end %>

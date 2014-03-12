@@ -2,13 +2,15 @@
 <div class = "page-header">
 	<h1><%= @restaurant.name %></h1>
 </div>
-<p><%= @restaurant.description %></p>
+<p><%= @restaurant.location.gsub(/\n/, '<br>') %></p>
 
 <% if @items.count > 0 %>
 	<ul id = "items-list">
 		<% @items.each do |item| %>
-			<li><h3><%= link_to item.name, item  %></h3><br>
-			<%= item.content %></li>
+			<% if item.name != nil %>
+				<li><h3><%= link_to item.name, item  %></h3><br>
+				<%= item.content %></li>
+			<% end %>
 		<% end %>
 	</ul>
 <% end %>

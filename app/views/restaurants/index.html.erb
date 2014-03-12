@@ -7,7 +7,7 @@
 	<% @restaurants.each do |restaurant| %>
 		<li>
 		<%= link_to restaurant.name, restaurant %>
-		<p><%= restaurant.description %></p>
+		<%= simple_format(restaurant.location) %>
 		</li>
 	<% end %>
 </ul>

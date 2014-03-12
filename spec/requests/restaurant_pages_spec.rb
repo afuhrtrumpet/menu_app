@@ -29,7 +29,7 @@ describe "Restaurant pages" do
 		describe "with valid information" do
 			before do
 				fill_in "Name", with: "McDonald's"
-				fill_in "Description", with: "A common restaurant"
+				fill_in "Location", with: "Everywhere"
 			end
 
 			it "should create a restaurant" do
