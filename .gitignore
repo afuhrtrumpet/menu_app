@@ -16,7 +16,7 @@
 /tmp
 
 # Ignore keys file
-/config/keys.yml
+/config/keys.yml*
 
 # Ignore temporary files
-/*~
+*~

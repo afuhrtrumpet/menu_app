@@ -5,6 +5,9 @@ ruby '1.9.3'
 gem 'rails', '4.0.2'
 gem 'bootstrap-sass', '3.1.1'
 gem 'oauth'
+gem 'omniauth'
+gem 'omniauth-facebook', '1.4.0'
+gem 'omniauth-google-oauth2'
 
 # Development and test-only gems
 group :development, :test do

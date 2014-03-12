@@ -16,7 +16,10 @@
 /tmp
 
 # Ignore keys file
-/config/keys.yml
+/config/keys.yml*
 
 # Ignore temporary files
 *~
+
+# Ignore omniauth initializer which also contains keys
+/config/initializers/omniauth.rb*

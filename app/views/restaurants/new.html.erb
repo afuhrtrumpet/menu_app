@@ -1,7 +1,7 @@
 <% api_host = 'api.yelp.com' %>
 
-<% consumer = OAuth::Consumer.new(ENV['consumer_key'], ENV['consumer_secret'], {:site => "http://#{api_host}"}) %>
-<% access_token = OAuth::AccessToken.new(consumer, ENV['token'], ENV['token_secret']) %>
+<% consumer = OAuth::Consumer.new(ENV['yelp_consumer_key'], ENV['yelp_consumer_secret'], {:site => "http://#{api_host}"}) %>
+<% access_token = OAuth::AccessToken.new(consumer, ENV['yelp_token'], ENV['yelp_token_secret']) %>
 
 <% path = "/v2/search?category_filter=restaurants" %>
 <% path = path + "&location=" + (u params[:location]) if params[:location] != nil %>
