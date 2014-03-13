@@ -2,8 +2,7 @@
 <div class = "page-header">
 	<h1><%= @restaurant.name %></h1>
 </div>
-<p><%= @restaurant.location.gsub(/\n/, '<br>') %></p>
-
+<%= simple_format(@restaurant.location) %>
 <% if @items.count > 0 %>
 	<ul id = "items-list">
 		<% @items.each do |item| %>

@@ -11,6 +11,8 @@ class ItemsController < ApplicationController
 
 	def show
 		@item = Item.find(params[:id])
+		@review = @item.reviews.build 
+		@reviews= @item.reviews
 	end
 
 	private

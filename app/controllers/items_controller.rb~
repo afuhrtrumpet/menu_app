@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
 	end
 
 	def show
-		@item = Items.find(params[:id])
+		@item = Item.find(params[:id])
 	end
 
 	private

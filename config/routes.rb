@@ -1,9 +1,12 @@
 MenuApp::Application.routes.draw do
 	resources :restaurants
 	resources :items
+	resources :reviews
 
 	root 'static_pages#home'
 	match '/about', to: 'static_pages#about', via: 'get'
+	match '/sign_in', to: 'static_pages#sign_in', via: 'get'
+
 	match '/new_restaurant', to: 'restaurants#new', via: 'get'
 
 	match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]

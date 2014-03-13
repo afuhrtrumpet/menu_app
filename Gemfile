@@ -4,10 +4,14 @@ ruby '1.9.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 gem 'bootstrap-sass', '3.1.1'
+
+# OmniAuth gems
 gem 'oauth'
 gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-linkedin-oauth2'
+gem 'omniauth-twitter'
 
 # Development and test-only gems
 group :development, :test do
