@@ -7,4 +7,8 @@ class StaticPagesController < ApplicationController
 
   def sign_in
   end
+
+  def test
+    render :layout => 'application', formats: [:pdf]
+  end
 end

@@ -4,4 +4,11 @@ class StaticPagesController < ApplicationController
 
   def about
   end
+
+  def sign_in
+  end
+
+  def test
+    render :layout => 'test', formats: [:pdf]
+  end
 end
