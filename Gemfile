@@ -12,6 +12,7 @@ gem 'omniauth-facebook', '1.4.0'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-linkedin-oauth2'
 gem 'omniauth-twitter'
+gem 'omniauth-github'
 
 # Development and test-only gems
 group :development, :test do
