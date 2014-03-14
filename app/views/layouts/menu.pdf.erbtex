@@ -1,0 +1,8 @@
+\documentclass[12pt]{moderncv}
+
+\moderncvtheme[orange]{casual}                  
+\usepackage[utf8]{inputenc} 
+
+<%= yield %>
+
+\end{document}

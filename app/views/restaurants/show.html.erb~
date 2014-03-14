@@ -18,17 +18,29 @@
 	<h2>Add a menu item</h2>
 </div>
 
-<%= form_for(@item) do |f| %>
-	<%= render 'shared/error_messages' %>
+<% if current_user %>
+	<%= form_for(@item) do |f| %>
+		<%= render 'shared/error_messages' %>
 
-	<%= f.label :name %>
-	<%= f.text_field :name %>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
 
-	<%= f.label :content %>
-	<%= f.text_field :content %>
+		<%= f.label :content %>
+		<%= f.text_field :content %>
 
-	<%= f.hidden_field :restaurant_id %>
+		<%= f.hidden_field :restaurant_id %>
 
-	<%= f.submit "Add item", class: "btn btn-large btn-primary" %>
+		<%= f.submit "Add item", class: "btn btn-large btn-primary" %>
+	<% end %>
+<% else %>
+	<p>Sign in to add a menu item!</p>
 <% end %>
 
+<div class = "page-header">
+	<h2>Generate a menu for this restaurant</h2>
+</div>
+
+<%= form_tag("/menu", method: "post") do |f| %>
+	<%= hidden_field_tag :id, @restaurant.id %>
+	<%= submit_tag("Generate Menu"), class: "btn btn-large btn-primary" %>
+<% end %>

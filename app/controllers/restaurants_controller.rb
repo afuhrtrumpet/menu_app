@@ -22,6 +22,11 @@ class RestaurantsController < ApplicationController
 		@restaurants = Restaurant.all
 	end
 
+	def menu
+		@restaurant = Restaurant.find(params[:id])
+		render :layout => 'menu', formats: [:pdf], disposition: 'inline'
+	end
+
 	private
 
 	def restaurant_params

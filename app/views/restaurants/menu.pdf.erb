@@ -1,0 +1,12 @@
+\firstname{}
+\lastname{<%= @restaurant.name %>}
+\title{Menu}
+\address{<%= @restaurant.location %>}
+\begin{document}
+
+\maketitle
+
+\section{Items}
+<% @restaurant.items.each do |item| %>
+	\cventry{}{<%= item.name %>}{<%= item.content %>}{}{}{}
+<% end %>

@@ -1,30 +1,35 @@
 class RestaurantsController < ApplicationController
-  def new
-	  @restaurant = Restaurant.new
-  end
+	def new
+		@restaurant = Restaurant.new
+	end
 
-  def create
-	  @restaurant = Restaurant.new(restaurant_params)
-	  if @restaurant.save
-		  redirect_to @restaurant
-	  else
-		  render 'new'
-	  end
-  end
+	def create
+		@restaurant = Restaurant.new(restaurant_params)
+		if @restaurant.save
+			redirect_to @restaurant
+		else
+			render 'new'
+		end
+	end
 
-  def show
-	  @restaurant = Restaurant.find(params[:id])
-	  @item = @restaurant.items.build 
-	  @items = @restaurant.items
-  end
+	def show
+		@restaurant = Restaurant.find(params[:id])
+		@item = @restaurant.items.build 
+		@items = @restaurant.items
+	end
 
-  def index
-	  @restaurants = Restaurant.all
-  end
+	def index
+		@restaurants = Restaurant.all
+	end
 
-  private
+	def menu
+		@restaurant = Restaurant.find(params[:id])
+		render :layout => 'menu', formats: [:pdf], :disposition => 'inline'
+	end
 
-  def restaurant_params
-	  params.require(:restaurant).permit(:name, :location)
-  end
+	private
+
+	def restaurant_params
+		params.require(:restaurant).permit(:name, :location)
+	end
 end
