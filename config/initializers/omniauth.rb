@@ -6,4 +6,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
 	provider :linkedin, ENV['linkedin_consumer_key'], ENV['linkedin_consumer_secret']
 	provider :twitter, ENV['twitter_consumer_key'], ENV['twitter_consumer_secret']
 	provider :github, ENV['github_consumer_key'], ENV['github_consumer_secret']
+	# provider :yelp, ENV['yelp_consumer_key'], ENV['yelp_consumer_secret']
 end

@@ -11,9 +11,10 @@ gem 'oauth'
 gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
 gem 'omniauth-google-oauth2'
-gem 'omniauth-linkedin-oauth2'
+gem 'omniauth-linkedin'
 gem 'omniauth-twitter'
 gem 'omniauth-github'
+gem 'omniauth-yelp'
 
 # Development and test-only gems
 group :development, :test do
