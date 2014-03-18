@@ -8,6 +8,7 @@ MenuApp::Application.routes.draw do
 	match '/sign_in', to: 'static_pages#sign_in', via: 'get'
 	match '/test', to: 'static_pages#test', via: 'get'
 
+	match '/menu', to: 'restaurants#menu', via: [:get, :post]
 	match '/new_restaurant', to: 'restaurants#new', via: 'get'
 
 	match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]

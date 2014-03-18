@@ -2,6 +2,7 @@ MenuApp::Application.routes.draw do
 	resources :restaurants
 	resources :items
 	resources :reviews
+	resources :categories
 
 	root 'static_pages#home'
 	match '/about', to: 'static_pages#about', via: 'get'

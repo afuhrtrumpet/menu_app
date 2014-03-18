@@ -1,12 +1,14 @@
 \firstname{}
-\lastname{<%= @restaurant.name %>}
+\lastname{<%= lesc(@restaurant.name) %>}
 \title{Menu}
-\address{<%= @restaurant.location %>}
+\address{<%= lesc(@restaurant.location) %>}
 \begin{document}
 
 \maketitle
 
-\section{Items}
-<% @restaurant.items.each do |item| %>
-	\cventry{}{<%= item.name %>}{<%= item.content %>}{}{}{}
+<% @restaurant.categories.each do |category| %>
+	\section{<%= lesc(category.name) %>}
+	<% category.items.each do |item| %>
+		\cventry{}{<%= item.name %>}{<%= item.content %>}{}{}{}
+	<% end %>
 <% end %>

@@ -3,6 +3,8 @@
 	<h1><%= @restaurant.name %></h1>
 </div>
 <%= simple_format(@restaurant.location) %>
+
+<% 
 <% if @items.count > 0 %>
 	<ul id = "items-list">
 		<% @items.each do |item| %>
@@ -15,25 +17,49 @@
 <% end %>
 
 <div class = "page-header">
-	<h2>Add a menu item</h2>
+	<h2>Add a menu category</h2>
 </div>
 
 <% if current_user %>
-	<%= form_for(@item) do |f| %>
-		<%= render 'shared/error_messages' %>
-
+	<%= form_for(@category) do |f| %>
 		<%= f.label :name %>
 		<%= f.text_field :name %>
 
-		<%= f.label :content %>
-		<%= f.text_field :content %>
-
 		<%= f.hidden_field :restaurant_id %>
 
-		<%= f.submit "Add item", class: "btn btn-large btn-primary" %>
+		<%= f.submit "Add category", class: "btn btn-large btn-primary" %>
 	<% end %>
 <% else %>
-	<p>Sign in to add a menu item!</p>
+	<p>Sign in to add a category!</p>
+<% end %>
+
+<div class = "page-header">
+	<h2>Add a menu item</h2>
+</div>
+
+<% if @restaurant.categories.count > 0 %>
+	<% if current_user %>
+		<%= form_for(@item) do |f| %>
+			<%= render 'shared/error_messages' %>
+
+			<%= f.label :name %>
+			<%= f.text_field :name %>
+
+			<%= f.label :content %>
+			<%= f.text_field :content %>
+
+			<%= f.label :category_id, "Category" %>
+			<%= f.select :category_id, @categories.map(&:name) %>
+
+			<%= f.hidden_field :restaurant_id %>
+
+			<%= f.submit "Add item", class: "btn btn-large btn-primary" %>
+		<% end %>
+	<% else %>
+		<p>Sign in to add a menu item!</p>
+	<% end %>
+<% else %>
+	<p>Add a category to add a menu item!</p>
 <% end %>
 
 <div class = "page-header">
@@ -42,5 +68,5 @@
 
 <%= form_tag("/menu", method: "post") do |f| %>
 	<%= hidden_field_tag :id, @restaurant.id %>
-	<%= submit_tag("Generate Menu"), class: "btn btn-large btn-primary" %>
+	<%= submit_tag "Generate Menu", class: "btn btn-large btn-primary" %>
 <% end %>

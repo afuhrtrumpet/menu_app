@@ -2,6 +2,7 @@
 <div class = "page-header">
 	<h1><%= @item.name %></h1>
 </div>
+<p><%= Category.find(@item.category_id).name %></p>
 <p><%= @item.content%></p>
 
 <div class = "page-header">
@@ -13,8 +14,8 @@
 		<% @reviews.each do |review| %>
 			<% if review.content != nil %>
 				<li><h3><%= review.content %></h3><br>
-				<% u = User.find_by uid: review.user_id %></li>
-				Posted by <%= u.name %>
+				<% u = User.find_by id: review.user_id %></li>
+				Posted by <%= u.name if u != nil %>
 			<% end %>
 		<% end %>
 	</ul>
