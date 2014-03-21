@@ -25,18 +25,21 @@
 <% end %>
 
 <% if params[:location] != nil %>
-	<% JSON[access_token.get(path).body]["businesses"].each do |restaurant| %>
-		<h1><a href = "<%= restaurant["url"] %>"><%= restaurant["name"] %></a></h1>
-			<p>
-			<% restaurant["location"]["display_address"].each do |element| %>
-				<%= element %><br>
-			<% end %>	
-			</p>
-		<% if current_user %>
-			<%= form_for(@restaurant) do |f| %>
-				<%= f.hidden_field :name, value: restaurant["name"] %>
-				<%= f.hidden_field :location, value: restaurant["location"]["display_address"].join("\n") %>
-				<%= f.submit "Add this restaurant", class: "btn btn-large btn-primary" %>
+	<%= access_token.get(path).body %>
+	<% if false %>
+		<% JSON[access_token.get(path).body]["businesses"].each do |restaurant| %>
+			<h1><a href = "<%= restaurant["url"] %>"><%= restaurant["name"] %></a></h1>
+				<p>
+				<% restaurant["location"]["display_address"].each do |element| %>
+					<%= element %><br>
+				<% end %>	
+				</p>
+			<% if current_user %>
+				<%= form_for(@restaurant) do |f| %>
+					<%= f.hidden_field :name, value: restaurant["name"] %>
+					<%= f.hidden_field :location, value: restaurant["location"]["display_address"].join("\n") %>
+					<%= f.submit "Add this restaurant", class: "btn btn-large btn-primary" %>
+				<% end %>
 			<% end %>
 		<% end %>
 	<% end %>
