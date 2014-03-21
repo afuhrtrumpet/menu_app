@@ -18,18 +18,18 @@ describe "Restaurant pages" do
 		it { should have_content('Add new restaurant') }
 		it { should have_title(full_title('Add restaurant')) }
 
-		let(:submit) { "Create restaurant" }
-
-		describe "with invalid information" do
-			it "should not create a restaurant" do
-				expect { click_button submit }.not_to change(Restaurant, :count)
-			end
-		end
-
+		let(:submit) { "Add this restaurant" }
+		
 		describe "with valid information" do
+			let(:user) { User.new(name: "Tester Man") }
+			
 			before do
+				controller.stub(:current_user = user)		
+
 				fill_in "Name", with: "McDonald's"
-				fill_in "Description", with: "A common restaurant"
+				fill_in "Location", with: "New York"
+
+				click_button("Find restaurant");
 			end
 
 			it "should create a restaurant" do

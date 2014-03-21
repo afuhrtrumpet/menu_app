@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe Review do
-  pending "add some examples to (or delete) #{__FILE__}"
+	before do {
+		@item = Item.new(name: "Apple", content: "The fruit, not the computer company!")
+		#@review = Item.reviews.new(
+	}
 end

@@ -27,11 +27,11 @@
 <% if params[:location] != nil %>
 	<% JSON[access_token.get(path).body]["businesses"].each do |restaurant| %>
 		<h1><a href = "<%= restaurant["url"] %>"><%= restaurant["name"] %></a></h1>
-			<p>
+		<p>
 			<% restaurant["location"]["display_address"].each do |element| %>
 				<%= element %><br>
 			<% end %>	
-			</p>
+		</p>
 		<% if current_user %>
 			<%= form_for(@restaurant) do |f| %>
 				<%= f.hidden_field :name, value: restaurant["name"] %>

@@ -2,19 +2,22 @@ require 'spec_helper'
 
 describe "StaticPages" do
 
-	describe "Home page" do
+	subject { page }
 
-		it "should have the content 'Menu App'" do
-			visit '/'
-			expect(page).to have_content('Menu App')
-		end
+	describe "Home page" do
+		before { visit '/' }
+		it { should have_content('Menu App') }
 	end
 
 	describe "About page" do
+		before { visit '/about' }
+		it { should have_content('About') }
+		it { should have_title(full_title('About')) }
+	end
 
-		it "should have the content 'About'" do
-			visit '/about'
-			expect(page).to have_content('About')
-		end
+	describe "Sign in page" do
+		before { visit '/sign_in' }
+		it { should have_content('Sign in') }
+		it { should have_title(full_title('Sign in')) }
 	end
 end
