@@ -20,6 +20,3 @@
 
 # Ignore temporary files
 *~
-
-# Ignore omniauth initializer which also contains keys
-/config/initializers/omniauth.rb*

@@ -15,8 +15,5 @@
 /log/*.log
 /tmp
 
-# Ignore keys file
-/config/keys.yml*
-
 # Ignore temporary files
 *~

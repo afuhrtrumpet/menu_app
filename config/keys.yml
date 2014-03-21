@@ -1,0 +1,19 @@
+yelp_consumer_key: 'YHSdlM655T2ii0Bo6KECKw'
+yelp_consumer_secret: 'NCN7BfHgToWfyMGwRTy6j7r5pNo'
+yelp_token: 'jN66TXLVy-AaZsgEUDZcn-FaUZo7NB8V'
+yelp_token_secret: '24IXqLyz0gxPxtO7gRXzJznOURw'
+
+facebook_consumer_key: '1421092371472361'
+facebook_consumer_secret: 'cb0563dd77b969feebfd29e5d57a880b'
+
+google_consumer_key: '1064333367036-64fcu5vjb2040mjf30khk29sl2u25omu.apps.googleusercontent.com'
+google_consumer_secret: 'hRLLNQONXFqAB0z38rjS4Nj5'
+       
+linkedin_consumer_key: '7776y2atbqg0mi'
+linkedin_consumer_secret: '9YawYDp79GlyTioB'
+
+twitter_consumer_key: 'Jw4QQM2kQ2tGwS58Ah3w'
+twitter_consumer_secret: 'dsV228wYI5PjfL1VPYQWaNRdxbNbK1LYWvs0MU6vyEg'
+
+github_consumer_key: 'ac474b7a86866df28e43'
+github_consumer_secret: 'e2c7b2fe7e58cfe376f3e3729d69e9da0c081bca'
